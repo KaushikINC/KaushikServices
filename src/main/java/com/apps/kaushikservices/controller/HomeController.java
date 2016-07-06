@@ -39,7 +39,7 @@ public class HomeController {
 
 	@RequestMapping(value = ("/getClass"), produces = ("application/json"), method = RequestMethod.GET)
 	public @ResponseBody List<ClassDTO> getAllClass() {
-		System.out.println("HomeController.getAllClass::Enter");
+		System.out.println("HomeController.getAllClass123::Enter");
 		List<ClassDomain> classListDomain = new ArrayList();
 		classListDomain = setUpExamService.getAllClass();
 		Iterator itr = classListDomain.iterator();
@@ -119,7 +119,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/allSubject", method=RequestMethod.POST, consumes=("application/json"), produces=("application/json"))
 	public @ResponseBody List<SubjectDTO> getAllSubject(@RequestBody ClassDTO classDTO,HttpServletRequest request,HttpServletResponse response){
-		System.out.println("HomeController.getAllSubject::Enter");
+		System.out.println("HomeController.getAllSubject466::Enter");
 		//classDTO.setClassId(1);
 		List<SubjectDTO> subjectList = new ArrayList();
 		 ClassDomain classDomain = new ClassDomain();
@@ -154,7 +154,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/allStudent", method=RequestMethod.POST, consumes=("application/json"), produces=("application/json"))
 	public @ResponseBody List<StudentDTO> getAllStudent(@RequestBody ClassDTO classDTO,HttpServletRequest request,HttpServletResponse response){
-		System.out.println("HomeController.getAllStudent::Enter");
+		System.out.println("HomeController.getAllStudent2233::Enter");
 		
 		List<StudentDTO> studentList = new ArrayList();
 		 ClassDomain classDomain = new ClassDomain();
@@ -182,7 +182,7 @@ public class HomeController {
 			}
 			studentList.add(studentDTO);
 		}
-		System.out.println("HomeController.getAllStudent::Exit");
+		System.out.println("HomeController.getAllStudent3t4334::Exit");
 		 return studentList;
 	}
 	
