@@ -48,7 +48,7 @@ public class SetExamServiceImpl implements SetUpExamService {
 		System.out.println("SetExamServiceImpl.getAllStudent::Enter");
 		List<StudentDomain> studentList = new ArrayList();
 		studentList = setUpExamDAO.getAllStudent(classDomain);
-		System.out.println("this is a text");
+		System.out.println("this is a text123");
 		System.out.println("SetExamServiceImpl.getAllStudent::Exit");
 		return studentList;
 	}
