@@ -6,13 +6,12 @@ package com.apps.kaushikservices.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.Subject;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.apps.kaushikservices.dao.SetUpExamDAO;
 import com.apps.kaushikservices.domain.ClassDomain;
+import com.apps.kaushikservices.domain.ExamDomain;
 import com.apps.kaushikservices.domain.StudentDomain;
 import com.apps.kaushikservices.domain.SubjectDomain;
 
@@ -41,18 +40,24 @@ public class SetExamServiceImpl implements SetUpExamService {
 		return subjectList;
 	}
 
-	
-
 	@Override
 	public List<StudentDomain> getAllStudent(ClassDomain classDomain) {
 		System.out.println("SetExamServiceImpl.getAllStudent::Enter");
 		List<StudentDomain> studentList = new ArrayList();
 		studentList = setUpExamDAO.getAllStudent(classDomain);
-		System.out.println("this is a text123");
 		System.out.println("SetExamServiceImpl.getAllStudent::Exit");
 		return studentList;
 	}
+
 	
+	@Override
+	public int saveExamData(ExamDomain examDomain) {
+		System.out.println("SetExamServiceImpl.saveExamData::Enter");
+		
+		int examId = setUpExamDAO.saveExamData(examDomain);
+		System.out.println("SetExamServiceImpl.saveExamData::Exit");
+		return examId;
+	}
 	
 	/**
 	 * @param setUpExamDAO
@@ -61,5 +66,6 @@ public class SetExamServiceImpl implements SetUpExamService {
 	public void setSetUpExamDAO(SetUpExamDAO setUpExamDAO) {
 		this.setUpExamDAO = setUpExamDAO;
 	}
+
 
 }

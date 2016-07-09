@@ -6,8 +6,10 @@ package com.apps.kaushikservices.controller;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +23,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.apps.kaushikservices.DTO.ClassDTO;
+import com.apps.kaushikservices.DTO.ExamDTO;
+import com.apps.kaushikservices.DTO.ExamQuestionDTO;
 import com.apps.kaushikservices.DTO.StudentDTO;
 import com.apps.kaushikservices.DTO.SubjectDTO;
 import com.apps.kaushikservices.domain.ClassDomain;
+import com.apps.kaushikservices.domain.ExamDomain;
 import com.apps.kaushikservices.domain.StudentDomain;
 import com.apps.kaushikservices.domain.SubjectDomain;
 import com.apps.kaushikservices.service.SetUpExamService;
@@ -36,7 +41,7 @@ import com.apps.kaushikservices.service.SetUpExamService;
 public class HomeController {
 	@Autowired
 	SetUpExamService setUpExamService;
-
+	
 	@RequestMapping(value = ("/getClass"), produces = ("application/json"), method = RequestMethod.GET)
 	public @ResponseBody List<ClassDTO> getAllClass() {
 		System.out.println("HomeController.getAllClass123::Enter");
@@ -185,6 +190,50 @@ public class HomeController {
 		System.out.println("HomeController.getAllStudent3t4334::Exit");
 		 return studentList;
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/saveExamData", method=RequestMethod.POST, consumes=("application/json"), produces=("application/json"))
+	public @ResponseBody Map saveExamData(@RequestBody ExamDTO examDTO,HttpServletRequest request,HttpServletResponse response){
+		System.out.println("HomeController.saveExamData::Enter");
+		
+		
+		 ExamDomain examDomain = new ExamDomain();
+		 /*try {
+			BeanUtils.copyProperties(classDomain, classDTO);
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		 //int examId =  setUpExamService.saveExamData(examDomain);
+		 System.out.println(examDTO.getName());
+		 System.out.println(examDTO.getType());
+		 System.out.println(examDTO.getFormat());
+		 System.out.println(examDTO.getClassId());
+		 System.out.println(examDTO.getSubjectId());
+		 System.out.println(examDTO.getChapterRange());
+		 System.out.println(examDTO.getMaximumMarks());
+		List <ExamQuestionDTO> quest =  examDTO.getQuestions();
+	for(ExamQuestionDTO value:quest){
+		System.out.println(value.getMarks());
+		System.out.println(value.getNumberOfQuestions());
+		
+	}
+		 
+		int examId = 1;
+		Map map = new HashMap();
+		map.put("examId", examId);
+		
+		System.out.println("HomeController.saveExamData::Exit");
+		 return map;
+	}
+	
+	
+	
 	
 	
 	
