@@ -13,6 +13,7 @@ import com.apps.kaushikservices.dao.SetUpExamDAO;
 import com.apps.kaushikservices.domain.ClassDomain;
 import com.apps.kaushikservices.domain.ExamDomain;
 import com.apps.kaushikservices.domain.StudentDomain;
+import com.apps.kaushikservices.domain.StudentExamScheduleDomain;
 import com.apps.kaushikservices.domain.SubjectDomain;
 
 /**
@@ -65,6 +66,18 @@ public class SetExamServiceImpl implements SetUpExamService {
 	 */
 	public void setSetUpExamDAO(SetUpExamDAO setUpExamDAO) {
 		this.setUpExamDAO = setUpExamDAO;
+	}
+
+	@Override
+	public boolean updateTargetInformation(ExamDomain examDomain, List<StudentExamScheduleDomain> studentExamScheduleDomainList) {
+		Boolean updateStatus = false;
+		Boolean saveStudentSchedule = false;
+		 updateStatus = setUpExamDAO.updateTargetInformation(examDomain);
+		if(updateStatus){
+			saveStudentSchedule = setUpExamDAO.saveStudentExamSchedule(studentExamScheduleDomainList);
+			return saveStudentSchedule;
+		}
+		return updateStatus;
 	}
 
 

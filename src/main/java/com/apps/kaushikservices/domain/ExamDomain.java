@@ -4,13 +4,22 @@
 package com.apps.kaushikservices.domain;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * @author Babita
@@ -33,11 +42,11 @@ public class ExamDomain {
 	@Column(name = "FORMAT")
 	private String format;
 
-	@Column(name = "CLASS_NAME")
-	private String className;
+	@Column(name = "CLASS_ID")
+	private String classId;
 
-	@Column(name = "SUBJECT")
-	private String subject;
+	@Column(name = "SUBJECT_ID")
+	private String subjectId;
 
 	@Column(name = "CHAPTER_RANGE")
 	private String chapterRange;
@@ -71,6 +80,9 @@ public class ExamDomain {
 
 	@Column(name = "EMAIL_ON_COMPLETE")
 	private boolean emailOnComplete;
+
+	@OneToMany(mappedBy = "examDomain")
+	private List<ExamQuestionDomain> questions;
 
 	/**
 	 * @return the examId
@@ -135,32 +147,6 @@ public class ExamDomain {
 	/**
 	 * @return the className
 	 */
-	public String getClassName() {
-		return className;
-	}
-
-	/**
-	 * @param className
-	 *            the className to set
-	 */
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
-	/**
-	 * @return the subject
-	 */
-	public String getSubject() {
-		return subject;
-	}
-
-	/**
-	 * @param subject
-	 *            the subject to set
-	 */
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
 
 	/**
 	 * @return the chapterRange
@@ -325,5 +311,50 @@ public class ExamDomain {
 	 */
 	public void setEmailOnComplete(boolean emailOnComplete) {
 		this.emailOnComplete = emailOnComplete;
+	}
+
+	/**
+	 * @return the classId
+	 */
+	public String getClassId() {
+		return classId;
+	}
+
+	/**
+	 * @param classId
+	 *            the classId to set
+	 */
+	public void setClassId(String classId) {
+		this.classId = classId;
+	}
+
+	/**
+	 * @return the subjectId
+	 */
+	public String getSubjectId() {
+		return subjectId;
+	}
+
+	/**
+	 * @param subjectId
+	 *            the subjectId to set
+	 */
+	public void setSubjectId(String subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	/**
+	 * @return the questions
+	 */
+	public List<ExamQuestionDomain> getQuestions() {
+		return questions;
+	}
+
+	/**
+	 * @param questions
+	 *            the questions to set
+	 */
+	public void setQuestions(List<ExamQuestionDomain> questions) {
+		this.questions = questions;
 	}
 }

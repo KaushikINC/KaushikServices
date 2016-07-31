@@ -25,8 +25,8 @@ public class SubjectDomain {
 	@Column(name = "NAME", nullable = false)
 	private String name;
 	
-	@Column(name = "NO_OF_CHAPTER", nullable = false)
-	private int noOfChapter;
+	@Column(name = "NO_OF_CHAPTERS", nullable = false)
+	private int noOfChapters;
 	
 	@Column(name = "CLASS_ID", nullable = false)
 	private int classId;
@@ -62,15 +62,15 @@ public class SubjectDomain {
 	/**
 	 * @return the noOfChapter
 	 */
-	public int getNoOfChapter() {
-		return noOfChapter;
+	public int getNoOfChapters() {
+		return noOfChapters;
 	}
 
 	/**
 	 * @param noOfChapter the noOfChapter to set
 	 */
-	public void setNoOfChapter(int noOfChapter) {
-		this.noOfChapter = noOfChapter;
+	public void setNoOfChapters(int noOfChapters) {
+		this.noOfChapters = noOfChapters;
 	}
 
 	/**
