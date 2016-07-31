@@ -10,6 +10,7 @@ import javax.security.auth.Subject;
 import com.apps.kaushikservices.domain.ClassDomain;
 import com.apps.kaushikservices.domain.ExamDomain;
 import com.apps.kaushikservices.domain.StudentDomain;
+import com.apps.kaushikservices.domain.StudentExamScheduleDomain;
 import com.apps.kaushikservices.domain.SubjectDomain;
 
 /**
@@ -24,4 +25,8 @@ public interface SetUpExamDAO {
 	public List<StudentDomain> getAllStudent(ClassDomain classDomain);
 
 	public int saveExamData(ExamDomain examDomain);
+	
+	public boolean updateTargetInformation(ExamDomain examDomain);
+	
+	public boolean saveStudentExamSchedule(List<StudentExamScheduleDomain> studentExamScheduleDomainList);
 }

@@ -10,7 +10,7 @@ package com.apps.kaushikservices.DTO;
 public class SubjectDTO {
 	private int subjectId;
 	private String name;
-	private int noOfChapter;
+	private int noOfChapters;
 	private int classId;
 
 	/**
@@ -46,16 +46,16 @@ public class SubjectDTO {
 	/**
 	 * @return the noOfChapter
 	 */
-	public int getNoOfChapter() {
-		return noOfChapter;
+	public int getNoOfChapters() {
+		return noOfChapters;
 	}
 
 	/**
 	 * @param noOfChapter
 	 *            the noOfChapter to set
 	 */
-	public void setNoOfChapter(int noOfChapter) {
-		this.noOfChapter = noOfChapter;
+	public void setNoOfChapters(int noOfChapters) {
+		this.noOfChapters = noOfChapters;
 	}
 
 	/**

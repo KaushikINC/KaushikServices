@@ -3,10 +3,13 @@
  */
 package com.apps.kaushikservices.DTO;
 
+
+
 /**
  * @author Babita
  *
  */
+
 public class ExamQuestionDTO {
 	private double marks;
 	private int numberOfQuestions;
